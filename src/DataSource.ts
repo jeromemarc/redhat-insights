@@ -32,13 +32,18 @@ export class DataSource extends DataSourceApi<MyQuery, MyDataSourceOptions> {
       const frame = new MutableDataFrame({
         refId: query.refId,
         fields: [
-          { name: 'Hostname', type: FieldType.string },
-          { name: 'Hit', type: FieldType.string },
+          { name: 'hostname', type: FieldType.string },
+          { name: 'recommendation', type: FieldType.string },
+	  { name: 'rhel_version', type: FieldType.string },
+          { name: 'total_risk', type: FieldType.number },
+          { name: 'likelihood', type: FieldType.number },
+          { name: 'uuid', type: FieldType.string },
+          { name: 'results_url', type: FieldType.string },
         ],
       });
 
       for (let i = 0; i < hits.length; i++) {
-        frame.appendRow([hits[i].hostname, hits[i].title]);
+        frame.appendRow([hits[i].hostname, hits[i].title, hits[i].rhel_version, hits[i].total_risk, hits[i].likelihood, hits[i].uuid, hits[i].results_url]);
       }
 
       return frame;
