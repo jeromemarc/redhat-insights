@@ -1,0 +1,291 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_RED_HAT INSIGHTS",
+      "label": "Red Hat Insights",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "red-hat-insights",
+      "pluginName": "Red Hat Insights"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "9.1.6"
+    },
+    {
+      "type": "datasource",
+      "id": "red-hat-insights",
+      "name": "Red Hat Insights",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "red-hat-insights",
+        "uid": "${DS_RED_HAT INSIGHTS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "filterable": true,
+            "inspect": false
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "System in Inventory",
+              "url": "https://console.redhat.com/insights/inventory/${__data.fields.uuid}"
+            },
+            {
+              "targetBlank": true,
+              "title": "System in Advisor",
+              "url": "https://console.redhat.com/insights/advisor/systems/${__data.fields.uuid}"
+            },
+            {
+              "targetBlank": true,
+              "title": "Recommendation in Advisor",
+              "url": "${__data.fields.results_url}"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "color": "super-light-yellow",
+                  "index": 0,
+                  "text": "Very Low"
+                },
+                "2": {
+                  "color": "super-light-blue",
+                  "index": 1,
+                  "text": "Low"
+                },
+                "3": {
+                  "color": "super-light-orange",
+                  "index": 2,
+                  "text": "Moderate"
+                },
+                "4": {
+                  "color": "light-red",
+                  "index": 3,
+                  "text": "Critical"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "likelihood"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "total_risk"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Hostname"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 200
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RHEL Version"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 120
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total Risk"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 120
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Likelihood"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 120
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 18,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Advisor recommendations",
+          "url": "https://console.redhat.com/insights/advisor/recommendations"
+        }
+      ],
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "red-hat-insights",
+            "uid": "${DS_RED_HAT INSIGHTS}"
+          },
+          "hide": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Advisor Recommendations",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "results_url": true,
+              "uuid": true
+            },
+            "indexByName": {
+              "hostname": 0,
+              "likelihood": 4,
+              "recommendation": 2,
+              "results_url": 6,
+              "rhel_version": 1,
+              "total_risk": 3,
+              "uuid": 5
+            },
+            "renameByName": {
+              "hostname": "Hostname",
+              "likelihood": "Likelihood",
+              "recommendation": "Recommendation",
+              "rhel_version": "RHEL Version",
+              "total_risk": "Total Risk",
+              "uuid": ""
+            }
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "refresh": "1h",
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Red Hat Insights",
+  "uid": "cvuaUsnVz",
+  "version": 6,
+  "weekStart": ""
+}
