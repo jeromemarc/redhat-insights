@@ -6,7 +6,7 @@ export interface MyQuery extends DataQuery {
 
 export const defaultQuery: Partial<MyQuery> = {};
 
-export interface Hit {
+export interface Recommendation {
   hostname: string;
   title: string;
   rhel_version: string;
@@ -16,7 +16,7 @@ export interface Hit {
   likelihood: number; 
 }
 export interface DataSourceResponse {
-  data: Hit[];
+  data: Recommendation[];
 }
 
 /**

@@ -70,59 +70,141 @@
           "custom": {
             "align": "auto",
             "displayMode": "auto",
-            "filterable": true,
             "inspect": false
           },
-          "links": [
-            {
-              "targetBlank": true,
-              "title": "System in Inventory",
-              "url": "https://console.redhat.com/insights/inventory/${__data.fields.uuid}"
-            },
-            {
-              "targetBlank": true,
-              "title": "System in Advisor",
-              "url": "https://console.redhat.com/insights/advisor/systems/${__data.fields.uuid}"
-            },
-            {
-              "targetBlank": true,
-              "title": "Recommendation in Advisor",
-              "url": "${__data.fields.results_url}"
-            }
-          ],
-          "mappings": [
-            {
-              "options": {
-                "1": {
-                  "color": "super-light-yellow",
-                  "index": 0,
-                  "text": "Very Low"
-                },
-                "2": {
-                  "color": "super-light-blue",
-                  "index": 1,
-                  "text": "Low"
-                },
-                "3": {
-                  "color": "super-light-orange",
-                  "index": 2,
-                  "text": "Moderate"
-                },
-                "4": {
-                  "color": "light-red",
-                  "index": 3,
-                  "text": "Critical"
-                }
-              },
-              "type": "value"
-            }
-          ],
+          "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 23,
+        "x": 0,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "9.1.6",
+      "targets": [
+        {
+          "key": "Q-c6779ab4-fb2c-42f4-a201-1cf492fa478b-0",
+          "queryText": "patch",
+          "refId": "A",
+          "datasource": {
+            "type": "red-hat-insights",
+            "uid": "${DS_RED_HAT INSIGHTS}"
+          }
+        }
+      ],
+      "title": "Advisories",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "red-hat-insights",
+        "uid": "${DS_RED_HAT INSIGHTS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 23,
+        "x": 0,
+        "y": 8
+      },
+      "id": 5,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "9.1.6",
+      "targets": [
+        {
+          "key": "Q-834bb752-37d0-42c5-8559-827bfdda10f2-0",
+          "queryText": "compliance",
+          "refId": "A",
+          "datasource": {
+            "type": "red-hat-insights",
+            "uid": "${DS_RED_HAT INSIGHTS}"
+          }
+        }
+      ],
+      "title": "Compliance",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "red-hat-insights",
+        "uid": "${DS_RED_HAT INSIGHTS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
               }
             ]
           }
@@ -131,94 +213,62 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "likelihood"
-            },
-            "properties": [
-              {
-                "id": "custom.displayMode",
-                "value": "color-background"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "total_risk"
-            },
-            "properties": [
-              {
-                "id": "custom.displayMode",
-                "value": "color-background"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Hostname"
+              "options": "description"
             },
             "properties": [
               {
                 "id": "custom.width",
-                "value": 200
+                "value": 722
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "RHEL Version"
+              "options": "type"
             },
             "properties": [
               {
                 "id": "custom.width",
-                "value": 120
+                "value": 64
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "Total Risk"
+              "options": "id"
             },
             "properties": [
               {
                 "id": "custom.width",
-                "value": 120
+                "value": 145
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "Likelihood"
+              "options": "impact"
             },
             "properties": [
               {
                 "id": "custom.width",
-                "value": 120
+                "value": 94
               }
             ]
           }
         ]
       },
       "gridPos": {
-        "h": 12,
-        "w": 18,
+        "h": 8,
+        "w": 23,
         "x": 0,
-        "y": 0
+        "y": 15
       },
-      "id": 1,
-      "links": [
-        {
-          "targetBlank": true,
-          "title": "Advisor recommendations",
-          "url": "https://console.redhat.com/insights/advisor/recommendations"
-        }
-      ],
+      "id": 4,
       "options": {
         "footer": {
-          "enablePagination": true,
           "fields": "",
           "reducer": [
             "sum"
@@ -231,43 +281,138 @@
       "pluginVersion": "9.1.6",
       "targets": [
         {
+          "key": "Q-13aaab5f-2b36-438e-bcb5-7f0c7bc304bd-0",
+          "queryText": "vulnerability",
+          "refId": "A",
           "datasource": {
             "type": "red-hat-insights",
             "uid": "${DS_RED_HAT INSIGHTS}"
-          },
-          "hide": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Advisor Recommendations",
-      "transformations": [
-        {
-          "id": "organize",
-          "options": {
-            "excludeByName": {
-              "results_url": true,
-              "uuid": true
-            },
-            "indexByName": {
-              "hostname": 0,
-              "likelihood": 4,
-              "recommendation": 2,
-              "results_url": 6,
-              "rhel_version": 1,
-              "total_risk": 3,
-              "uuid": 5
-            },
-            "renameByName": {
-              "hostname": "Hostname",
-              "likelihood": "Likelihood",
-              "recommendation": "Recommendation",
-              "rhel_version": "RHEL Version",
-              "total_risk": "Total Risk",
-              "uuid": ""
-            }
           }
         }
       ],
+      "title": "Vulnerabilities",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "red-hat-insights",
+        "uid": "${DS_RED_HAT INSIGHTS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 23,
+        "x": 0,
+        "y": 23
+      },
+      "id": 2,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "9.1.6",
+      "targets": [
+        {
+          "key": "Q-c86c4920-93b9-4ca0-961a-43c3dce603f4-0",
+          "queryText": "advisor",
+          "refId": "A",
+          "datasource": {
+            "type": "red-hat-insights",
+            "uid": "${DS_RED_HAT INSIGHTS}"
+          }
+        }
+      ],
+      "title": "Recommendations",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "red-hat-insights",
+        "uid": "${DS_RED_HAT INSIGHTS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 23,
+        "x": 0,
+        "y": 30
+      },
+      "id": 3,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "9.1.6",
+      "targets": [
+        {
+          "key": "Q-9bbffe23-c511-4cba-9958-484a5e4534fe-0",
+          "queryText": "inventory",
+          "refId": "A",
+          "datasource": {
+            "type": "red-hat-insights",
+            "uid": "${DS_RED_HAT INSIGHTS}"
+          }
+        }
+      ],
+      "title": "Inventory",
       "type": "table"
     }
   ],
@@ -286,6 +431,6 @@
   "timezone": "",
   "title": "Red Hat Insights",
   "uid": "cvuaUsnVz",
-  "version": 6,
+  "version": 15,
   "weekStart": ""
 }

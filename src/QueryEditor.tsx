@@ -31,10 +31,10 @@ export class QueryEditor extends PureComponent<Props> {
       <div>
         <FormField
           labelWidth={8}
-          value={queryText || 'param'}
+          value={queryText || 'advisor'}
           onChange={this.onQueryTextChange}
-          label="Query param"
-          tooltip="Not used"
+          label="Query"
+          tooltip="Currently implemented are advisor, compliance, inventory, patch and vulnerability"
         />
       </div>
     );
