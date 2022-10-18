@@ -11,5 +11,10 @@ This template is a starting point for building a Grafana Data Source Plugin for 
 
 ## Overview
 
-Plugin import
+Plugin import:
+
 ![alt text](/images/image4.png "Plugin import")
+
+Plugin configuration:
+
+![alt text](/images/image2.png "Plugin configuration")
