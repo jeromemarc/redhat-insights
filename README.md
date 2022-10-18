@@ -18,3 +18,11 @@ Plugin import:
 Plugin configuration:
 
 ![alt text](/images/image2.png "Plugin configuration")
+
+Host list:
+
+![alt text](/images/image5.png "Host list")
+
+Recommendations and vulnerabilities overview:
+
+![alt text](/images/image1.png "Recommendations and vulnerabilities overview")
