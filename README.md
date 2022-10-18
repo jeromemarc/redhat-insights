@@ -19,10 +19,10 @@ Plugin configuration:
 
 ![alt text](/images/image2.png "Plugin configuration")
 
-Host list:
+Sample query on Insights APIs (method passed as query parameter e.g. advisor):
 
 ![alt text](/images/image5.png "Host list")
 
-Recommendations and vulnerabilities overview:
+Dashboard overview:
 
 ![alt text](/images/image1.png "Recommendations and vulnerabilities overview")
