@@ -2,8 +2,6 @@
 
 This template is a starting point for building a Grafana Data Source Plugin for Red Hat Insights. The content is based on the article ["Integrate Grafana and Red Hat Insights through APIs"](https://www.redhat.com/en/blog/integrate-grafana-and-red-hat-insights-through-apis) published on the Red Hat Blog.
 
-https://www.redhat.com/en/blog/integrate-grafana-and-red-hat-insights-through-apis
-
 ## Learn more
 
 - [Build a data source plugin tutorial](https://grafana.com/tutorials/build-a-data-source-plugin)
