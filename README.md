@@ -26,3 +26,30 @@ Sample query on Insights APIs (method passed as query parameter e.g. advisor):
 Dashboard overview:
 
 ![alt text](/images/image1.png "Recommendations and vulnerabilities overview")
+
+## Build and install redhat-insights plugin
+
+The code provided must be compiled before it can be recognized by Grafana. The following commands may be adapted for your particular Grafana environment:
+```
+# nvm install
+# mkdir /var/lib/grafana/plugins/
+# cd /var/lib/grafana/plugins/
+Extract the redhat-insights github files into redhat-insights
+# cd /var/lib/grafana/plugins/redhat-insights
+# nvm install --global yarn
+# yarn install --ignore-engines
+# yarn build
+```
+In order to allow unsigned plugin in your Grafana environment, `/etc/grafana/grafana.ini` configuration file must be modified:
+```
+app_mode = development
+enable_alpha = true
+allow_loading_unsigned_plugins = "redhat-insights"
+```
+Make sure your start or restart your Grafana environment after these changes:
+```
+# sudo systemctl restart grafana-server
+```
+You can then login in your Grafana environment and configure the `redhat-insights` plugin by adding a datasource under `Home > Administration > Plugins and data > Plugins`.
+
+The provided sample dashboard can also be imported manually under Dashboards using [`/provisioning/dashboard/dashboard.json`]([https://github.com/jeromemarc/redhat-insights/tree/main/provisioning/dashboards](https://github.com/jeromemarc/redhat-insights/blob/main/provisioning/dashboards/dashboard.json)) file.
