@@ -1,0 +1,40 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "datasource",
+  "name": "Red Hat Insights",
+  "id": "red-hat-insights",
+  "metrics": true,
+  "info": {
+    "description": "Grafana datasource pluging for Red Hat Insights",
+    "author": {
+      "name": "Jerome Marc",
+      "url": ""
+    },
+    "keywords": [
+      "redhat",
+      "insights",
+      "datasource"
+    ],
+    "logos": {
+      "small": "img/redhat-insights.svg",
+      "large": "img/redhat-insights.svg"
+    },
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/jeromemarc/redhat-insights"
+      },
+      {
+        "name": "License",
+        "url": "https://github.com/grafana/grafana-starter-datasource/blob/master/LICENSE"
+      }
+    ],
+    "screenshots": [],
+    "version": "1.0.0",
+    "updated": "2024-09-04"
+  },
+  "dependencies": {
+    "grafanaDependency": ">=7.0.0",
+    "plugins": []
+  }
+}
