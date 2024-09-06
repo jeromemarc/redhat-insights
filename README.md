@@ -36,7 +36,7 @@ The code provided must be compiled before it can be recognized by Grafana. The f
 # cd /var/lib/grafana/plugins/
 Extract the redhat-insights github files into redhat-insights
 # cd /var/lib/grafana/plugins/redhat-insights
-# nvm install --global yarn
+# npm install --global yarn
 # yarn install --ignore-engines
 # yarn build
 ```
